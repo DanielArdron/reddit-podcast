@@ -5,12 +5,12 @@ This repository contains the Docker packaging for a personal Reddit-to-podcast s
 The application image is published by GitHub Actions to:
 
 ```text
-ghcr.io/<github-owner>/reddit-podcast:latest
+ghcr.io/danielardron/reddit-podcast:latest
 ```
 
 ## Before deploying
 
-1. Create the new GitHub repository as `reddit-podcast` and push this project to its `main` branch.
+1. Confirm that the GitHub Actions workflow has published the image from the `main` branch.
 2. Wait for the **Publish Docker image** workflow to complete.
 3. If the package is private, authenticate the OMV Docker host to GHCR. A public repository/package avoids that extra step.
 4. Create two OMV shared folders, one for application state and one for generated MP3 episodes.
