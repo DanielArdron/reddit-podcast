@@ -1,0 +1,25 @@
+services:
+  reddit-podcast:
+    image: ${GHCR_IMAGE:-ghcr.io/your-github-username/reddit-podcast}:${IMAGE_TAG:-latest}
+    container_name: reddit-podcast
+    restart: unless-stopped
+    init: true
+    env_file:
+      - .env
+    environment:
+      TZ: Europe/London
+      PORT: 8080
+      DATA_DIR: /data
+      AUDIO_DIR: /episodes
+      FEED_URL: https://podcasts.danielardron.co.uk/redditfeed.xml
+    ports:
+      - "${RSS_PORT:-8080}:8080"
+    volumes:
+      - ${OMV_APPDATA_PATH:-/REPLACE/with/your/omv/appdata/reddit-podcast}:/data
+      - ${OMV_EPISODES_PATH:-/REPLACE/with/your/omv/episodes/reddit-podcast}:/episodes
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail --silent http://127.0.0.1:8080/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      start_period: 30s
+      retries: 3
