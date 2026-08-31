@@ -1,6 +1,6 @@
 services:
   reddit-podcast:
-    image: ${GHCR_IMAGE:-ghcr.io/your-github-username/reddit-podcast}:${IMAGE_TAG:-latest}
+    image: ${GHCR_IMAGE:-ghcr.io/danielardron/reddit-podcast}:${IMAGE_TAG:-latest}
     container_name: reddit-podcast
     restart: unless-stopped
     init: true
