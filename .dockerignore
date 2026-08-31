@@ -1,0 +1,13 @@
+.git
+.github
+.env
+.venv
+__pycache__
+*.py[cod]
+*.sqlite
+*.db
+data
+episodes
+README.md
+DEPLOYMENT.md
+
